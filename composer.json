@@ -1,0 +1,24 @@
+{
+  "name": "kohkimakimoto/altax-adminer",
+  "description": "Adminer runs on the php built-in web server via altax.",
+  "keywords": ["altax", "plugin"],
+  "homepage": "https://github.com/kohkimakimoto/altax-adminer",
+  "license": "Apache License 2.0",
+  "authors": [
+    {
+      "name": "Kohki Makimoto",
+      "email": "kohki.makimoto@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0"
+  },
+  "require-dev": {
+    "kohkimakimoto/altax": "3.0.*@dev",
+    "phpunit/phpunit": "3.*",
+    "satooshi/php-coveralls": "dev-master"
+  },
+  "autoload": {
+    "psr-0": { "Altax\\": "src/"}
+  }
+}
