@@ -1,4 +1,4 @@
-# Altax server plugin
+# Altax adminer plugin
 
 [Adminer](https://github.com/vrana/adminer/) runs on the php built-in web server via [altax](https://github.com/kohkimakimoto/altax).
 
