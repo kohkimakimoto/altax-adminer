@@ -22,5 +22,8 @@ function adminer_object() {
     return new AdminerPlugin($plugins);
 }
 
+// Change directory to runs adminer-x.x.x.php correctly.
+chdir(__DIR__);
+
 // include original Adminer or Adminer Editor
 include __DIR__."/adminer-4.0.3.php";
