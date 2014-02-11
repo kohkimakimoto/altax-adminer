@@ -10,7 +10,7 @@ Edit your `.altax/composer.json` file like the following.
 
     {
       "require": {
-        "kohkimakimoto/altax-adminer": "dev-master"
+        "kohkimakimoto/altax-adminer": "~0.1"
       }
     }
 
