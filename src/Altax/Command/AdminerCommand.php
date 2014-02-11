@@ -3,6 +3,7 @@ namespace Altax\Command;
 
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Finder\Finder;
 
 class AdminerCommand extends \Altax\Command\Command
 {
@@ -13,6 +14,13 @@ class AdminerCommand extends \Altax\Command\Command
         $host = isset($config["host"]) ? $config["host"] : '0.0.0.0';
         $port = isset($config["port"]) ? $config["port"] : 3001;
         $css  = isset($config["css"]) ?  $config["css"] : null;
+
+        $cssList = array();
+        $finder = new Finder();
+        $finder->files()->depth('== 0')->in(__DIR__."/../Resources/adminer/css");
+        foreach ($finder as $file) {
+            $cssList[] =  basename($file->getBasename(), ".css");
+        }
 
         $this
             ->setDescription("Adminer runs on the php built-in web server via altax.")
@@ -34,7 +42,7 @@ class AdminerCommand extends \Altax\Command\Command
                 'css',
                 null,
                 InputOption::VALUE_REQUIRED, 
-                'Design css. (ng9)', 
+                'Design css. ('.implode("|", $cssList).")", 
                 $css
                 )
             ;
