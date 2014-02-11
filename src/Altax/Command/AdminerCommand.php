@@ -12,22 +12,30 @@ class AdminerCommand extends \Altax\Command\Command
 
         $host = isset($config["host"]) ? $config["host"] : '0.0.0.0';
         $port = isset($config["port"]) ? $config["port"] : 3001;
+        $css  = isset($config["css"]) ?  $config["css"] : null;
 
         $this
             ->setDescription("Adminer runs on the php built-in web server via altax.")
             ->addOption(
                 'host',
                 'H',
-                InputOption::VALUE_OPTIONAL, 
+                InputOption::VALUE_REQUIRED, 
                 'The host address of the server.', 
                 $host
                 )
             ->addOption(
                 'port',
                 'p',
-                InputOption::VALUE_OPTIONAL, 
+                InputOption::VALUE_REQUIRED, 
                 'The port of the server.', 
                 $port
+                )
+            ->addOption(
+                'css',
+                null,
+                InputOption::VALUE_REQUIRED, 
+                'Design css. (ng9)', 
+                $css
                 )
             ;
     }
@@ -44,11 +52,19 @@ class AdminerCommand extends \Altax\Command\Command
 
         $host = $input->getOption('host');
         $port = $input->getOption('port');
-
-        $script = __DIR__."/../Resource/public/index.php";
-        $docRoot = __DIR__."/../Resource/public";
+        $css = $input->getOption('css');
+        $script = __DIR__."/../Resources/public/index.php";
+        $docRoot = __DIR__."/../Resources/public";
 
         $output->writeln("<info>Adminer runs on </info><comment>http://{$host}:{$port}</comment>");
-        passthru('"'.PHP_BINARY.'"'." -S {$host}:{$port} -t{$docRoot} {$script}");
+
+        $cssSetting = null;
+        if ($css) {
+            $cssSetting = "ADMINER_CSS=$css ";
+        } else { 
+            $cssSetting = "";
+        }
+
+        passthru($cssSetting.PHP_BINARY." -d variables_order=EGPCS -S {$host}:{$port} -t{$docRoot} {$script}");
     }
 }
