@@ -10,7 +10,7 @@ Edit your `.altax/composer.json` file like the following.
 
     {
       "require": {
-        "kohkimakimoto/altax-adminer": "~0.1"
+        "kohkimakimoto/altax-adminer": "dev-master"
       }
     }
 
@@ -21,7 +21,7 @@ Run composer update.
 
 Add the following line your `.altax/config.php` file.
 
-    Task::register('adminer', 'Altax\Command\AdminerCommand');
+    Task::register('adminer', 'Altax\Contrib\Adminer\Command\AdminerCommand');
 
 ## Usage
 
@@ -38,7 +38,7 @@ Access server using a web browser.
 Example:
 
 ```php
-Task::register('adminer', 'Altax\Command\AdminerCommand')
+Task::register('adminer', 'Altax\Contrib\Adminer\Command\AdminerCommand')
 ->config(array(
     "host" => "localhost",
     "port" => 1234,
