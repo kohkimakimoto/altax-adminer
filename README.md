@@ -30,7 +30,7 @@ Run the task command.
 
 Access server using a web browser.
 
-    http://localhost:3001/
+    http://localhost:3000/
 
 ## Configuration
 

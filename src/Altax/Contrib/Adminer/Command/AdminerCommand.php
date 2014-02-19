@@ -12,7 +12,7 @@ class AdminerCommand extends \Altax\Command\Command
         $config = $this->getTaskConfig();
 
         $host = isset($config["host"]) ? $config["host"] : '0.0.0.0';
-        $port = isset($config["port"]) ? $config["port"] : 3001;
+        $port = isset($config["port"]) ? $config["port"] : 3000;
         $css  = isset($config["css"]) ?  $config["css"] : null;
 
         $cssList = array();
