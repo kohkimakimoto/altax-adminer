@@ -2,8 +2,6 @@
 
 [Adminer](https://github.com/vrana/adminer/) runs on the php built-in web server via [altax](https://github.com/kohkimakimoto/altax).
 
-> Note: It runs with altax version 3 which is in development stage. You shouldn't use it yet.
-
 ## Installation
 
 Edit your `.altax/composer.json` file like the following.
