@@ -14,11 +14,11 @@
     "php": ">=5.4.0"
   },
   "require-dev": {
-    "kohkimakimoto/altax": "3.*",
     "phpunit/phpunit": "3.*",
+    "kohkimakimoto/altax": "3.*",
     "satooshi/php-coveralls": "dev-master"
   },
-  "minimum-stability": "alpha",
+  "minimum-stability": "dev",
   "autoload": {
     "psr-0": { "Altax\\Contrib\\Adminer\\": "src/"}
   }
